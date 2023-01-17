@@ -108,7 +108,10 @@ public class Calender {
 		int year = sc.nextInt();
 		System.out.println("calnder for " + year);
 		boolean leap = false;
-
+		if(year<1600||year>2099) {
+			System.out.println("please enter the year between 1600 - 2099");
+			return;
+		}
 		if (year % 4 == 0) {
 			leap = true;
 		}
