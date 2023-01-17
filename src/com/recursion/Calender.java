@@ -113,8 +113,19 @@ public class Calender {
 			return;
 		}
 		if (year % 4 == 0) {
-			leap = true;
+			if (year % 100 == 0) {
+				if (year % 400 == 0) {
+					leap = true;
+				} else {
+					leap = false;
+				}
+			} else {
+				leap = true;
+			}
+		} else {
+			leap = false;
 		}
+
 
 		String[] months = { "January", "Febraury", "March", "April", "May", "June", "July", "August", "September",
 				"October", "November", "December" };
