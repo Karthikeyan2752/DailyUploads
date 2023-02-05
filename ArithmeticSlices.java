@@ -12,6 +12,10 @@ Explanation: We have 3 arithmetic slices in nums: [1, 2, 3], [2, 3, 4] and [1,2,
  */
 package com.leetcodes1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArithmeticSlices {
 
 	public int numberOfArithmeticSlices(int[] nums) {
@@ -31,5 +35,26 @@ public class ArithmeticSlices {
 		}
 
 		return count;
+	}
+
+	public static int[] separateDigits(int[] nums) {
+		List<Integer> list = new ArrayList<>();
+		for (int num : nums) {
+			int digit = (int) Math.log10(num);
+			while (digit >= 0) {
+				list.add(num / (int) (Math.pow(10, digit)));
+				digit--;
+			}
+		}
+
+		int[] result = new int[list.size()];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = list.get(i);
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(separateDigits(new int[] { 1, 23, 34, 3 })));
 	}
 }
